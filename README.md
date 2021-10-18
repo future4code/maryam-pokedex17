@@ -11,10 +11,10 @@ Nome dos integrantes:
 
 - Kanban contém as seguintes colunas:
 
-A fazer
-Em andamento
-Em teste
-Concluido
+* A fazer
+* Em andamento
+* Em teste
+* Concluido
 
 # Link do Surge: 
 
