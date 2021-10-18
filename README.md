@@ -9,6 +9,9 @@ Nome dos integrantes:
 
 # Wireframe: 
 
+# Paletas de Cores: 
+https://coolors.co/f45138-fa7346-fdfdfd-585858-000000
+
 # Funcionalidades:
 
 O que funciona:
