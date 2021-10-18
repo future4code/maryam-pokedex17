@@ -7,6 +7,8 @@ Nome dos integrantes:
 
 # Link do Surge: 
 
+# Wireframe: 
+
 # Funcionalidades:
 
 O que funciona:
@@ -16,8 +18,6 @@ O que funciona:
 O que não funciona: 
 - Item 3
 - Item 4
-
-# Wireframe: 
 
 # Implementações: 
 
