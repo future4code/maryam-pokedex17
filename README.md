@@ -7,6 +7,8 @@ Nome dos integrantes:
 
 # Link do Surge: 
 
+# Funcionalidades:
+
 O que funciona:
 - Item 1
 - Item 2
