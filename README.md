@@ -5,6 +5,17 @@ Nome dos integrantes:
 - Juliany Santos Vasconcelos
 - Leonardo Souza Gomes
 
+# Planejamento: 
+
+- Há um board no Trello contendo todas as tarefas a serem feitas pelos integrantes do grupo.
+
+- Kanban contém as seguintes colunas:
+
+A fazer
+Em andamento
+Em teste
+Concluido
+
 # Link do Surge: 
 
 # Wireframe: 
