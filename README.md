@@ -23,6 +23,8 @@ O que não funciona:
 
 - API utilizada para realizar este projeto : https://pokeapi.co/
 
+- Postman collection Pokedex link: https://universal-trinity-553971.postman.co/workspace/My-Workspace~d282a771-2ecc-4ec6-81b5-37b169d7c09e/collection/17588241-628f73c0-0755-4dd6-a650-28ab36308f60?ctx=documentation
+
 - O projeto possui as seguintes páginas:
 
 Home : o usuário deve receber uma lista de pokemons vinda da API com os 20 primeiros pokemons. o Usuário pode armazenar Pokemons em sua Pokedex clicando nos cards para adiciona- los.
