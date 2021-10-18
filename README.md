@@ -1,11 +1,11 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Alexandre Rafael
+- Juliany Santos Vasconcelos
+- Leonardo Souza Gomes
 
-Link do Surge: www.link.com.br
+Link do Surge: 
 
 O que funciona:
 - Item 1
@@ -14,3 +14,5 @@ O que funciona:
 O que não funciona: 
 - Item 3
 - Item 4
+
+Wireframe: 
