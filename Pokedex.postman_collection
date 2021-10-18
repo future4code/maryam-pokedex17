@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20",
+					"raw": "https://pokeapi.co/api/v2/pokemon?limit=0&offset=20",
 					"protocol": "https",
 					"host": [
 						"pokeapi",
@@ -24,11 +24,11 @@
 					],
 					"query": [
 						{
-							"key": "offset",
+							"key": "limit",
 							"value": "0"
 						},
 						{
-							"key": "limit",
+							"key": "offset",
 							"value": "20"
 						}
 					]
@@ -36,7 +36,7 @@
 			},
 			"response": []
 		},
-		 {
+		{
 			"name": "Get Pokemon by Id",
 			"request": {
 				"method": "GET",
@@ -55,13 +55,12 @@
 						"1",
 						""
 					]
-				},
-				"description": "### propriedades úteis\n- weight\n- types\n- stats\n- sprites\n- name\n- order\n- height\n- id\n- moves (array)"
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get Pokemon Status",
+			"name": "Get Pokemon Species",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -76,6 +75,52 @@
 						"api",
 						"v2",
 						"pokemon-species",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pokemon Stats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/stat/1/",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"stat",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pokemon Type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/type/1/",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"type",
 						"1",
 						""
 					]
