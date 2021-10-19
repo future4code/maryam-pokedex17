@@ -49,4 +49,6 @@ Detalhes do Pokemon: Direciona o usuário para uma página de detalhes do Pokemo
 
 # Imagens: 
 
+![image](https://user-images.githubusercontent.com/86701927/137853015-ba2a18eb-3eb9-4d8e-9690-3669851d705f.png)
+![image](https://user-images.githubusercontent.com/86701927/137853136-34e3f650-5d82-4624-8446-b9319e8b88b5.png)
 
