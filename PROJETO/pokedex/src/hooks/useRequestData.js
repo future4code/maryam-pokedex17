@@ -7,7 +7,7 @@ const useRequestData = (initialState) => {
 
 	useEffect(() => {
         axios
-        .get(`${BaseUrl}/`)
+        .get(`${BaseUrl}/pokedex`)
         .then((res) => {
             setData(res.data)
         })
@@ -21,3 +21,4 @@ const useRequestData = (initialState) => {
 };
 
 export default useRequestData; 
+
