@@ -1,7 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
-import styled from "styled-components";
+import HeaderHome from "../Header/HeaderHome";
+import {ContainerButton, ContainerPokedex, ContainerCard, NamePokemon, CardButton, Button, ButtonPokedex, Titulo } from "./styled";
+import cardfoto from "../../img/estrelapoke.png"
+import pokedexlogo from "../../img/bagmaior.png"
 
 
 const HomePage = () => {
@@ -13,27 +16,34 @@ const HomePage = () => {
     }
 
     const DetailsPokemonPage = () => {
-        history.push("/pokedex/details")
+        history.push("/details")
     }
 
     return (
         <div>
-            
-            <div>
 
-                <h1>HomePage</h1>
+            <HeaderHome />
+
+            <ContainerButton>
+                <ButtonPokedex onClick={PokedexPage}><img src={pokedexlogo}  alt="pokedex botão"/></ButtonPokedex>
+                <Titulo>Acesse sua Pokedex</Titulo>
+            </ContainerButton>
+
+            <ContainerPokedex>
                 
-                <div>
-                    <button onClick={PokedexPage}>Pokedex</button>
-                </div>
-
-                <div>     
-                    <button onClick={DetailsPokemonPage}>Detalhes Pokemons</button>
-                </div>
-            </div>
-
+                <ContainerCard>
+                    <img src={cardfoto} alt="foto"/>
+                    <NamePokemon>Pokemon</NamePokemon>
+                    
+                    <CardButton>
+                        <Button>Adicionar</Button>
+                        <Button onClick={DetailsPokemonPage}>Detalhes</Button>
+                    </CardButton>
+                </ContainerCard>
+                
+            </ContainerPokedex>
+        
         </div>
-
     );
 }
 

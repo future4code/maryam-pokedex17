@@ -1,7 +1,11 @@
 import React from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
-import styled from "styled-components";
+import HeaderDetails from "../Header/HeaderDetails";
+import pokedexlogo from "../../img/pokedex.png"
+import {ContainerButton, ButtonPokedex, Button, Titulo, ContainerInfos, ContainerPhotos, ContainerStats, ContainerType, ContainerMoves, ContainerHability } from "./styled";
+import pokephoto from "../../img/estrelapoke.png"
+
 
 
 const DetailsPokemonPage = () => {
@@ -12,28 +16,49 @@ const DetailsPokemonPage = () => {
         history.push("/")
     }
 
-    const PokedexPage = () => {
-        history.push("/pokedex")
-    }
-
     return (
         <div>
-            
-            <div>
+    
+            <HeaderDetails/>
 
-                <h1>DetailsPokemonPage</h1>
-                
-                <div>
-                    <button onClick={HomePage}>Home</button>
-                </div>
+            <ContainerButton>
+                <ButtonPokedex onClick={HomePage}><img src={pokedexlogo}  alt="pokedex botão"/></ButtonPokedex>
+                <Titulo>Pokedex</Titulo>
+                <Button>Add ou Remove Pokemon da Pokedex</Button>
+            </ContainerButton>
+        
+            <ContainerInfos>
+                <ContainerPhotos>
+                    <img src={pokephoto} alt="foto pokemon" />
+                    <img src={pokephoto} alt="foto pokemon" />
+                </ContainerPhotos>
 
-                <div>     
-                    <button onClick={PokedexPage}>Pokedex</button>
-                </div>
-            </div>
+                <ContainerStats>
+                    <h2>Status</h2>
+                    <br></br>
+                    <p>HP:</p>
+                    <p>Attack:</p>
+                    <p>Defense:</p>
+                    <p>Special-Attack:</p>
+                    <p>Special-Defense:</p>
+                    <p>Speed:</p>
+                </ContainerStats>
 
+                <ContainerHability>
+                    <ContainerType>
+                        <h2>Type</h2>
+                    </ContainerType>
+
+                    <ContainerMoves>
+                        <h2>Especiais</h2>
+                        <p>Move</p>
+                        <p>Move</p>
+                        <p>Move</p>
+                    </ContainerMoves>
+                </ContainerHability>
+
+            </ContainerInfos>
         </div>
-
     );
 }
 
