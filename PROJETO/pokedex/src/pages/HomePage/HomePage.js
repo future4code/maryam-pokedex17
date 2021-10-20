@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
-import HeaderHome from "../Header/HeaderHome";
+import HeaderHome from "../../components/Header/HeaderHome";
 import {ContainerButton, ContainerPokedex, ContainerCard, NamePokemon, CardButton, Button, ButtonPokedex, Titulo } from "./styled";
 import cardfoto from "../../img/estrelapoke.png"
 import pokedexlogo from "../../img/bagmaior.png"
+import GlobalStateContext from "../../global/GlobalStateContext";
 
 
-const HomePage = () => {
+const HomePage = ({pokemon}) => {
+
+    const {pokemons} = useContext(GlobalStateContext)
 
     const history = useHistory()
 
@@ -16,7 +19,7 @@ const HomePage = () => {
     }
 
     const DetailsPokemonPage = () => {
-        history.push("/details")
+        history.push(`/pokemon/name`)
     }
 
     return (
@@ -30,21 +33,26 @@ const HomePage = () => {
             </ContainerButton>
 
             <ContainerPokedex>
-                
+                {/* {pokemons.map((poke) => {
+
+                return (
                 <ContainerCard>
-                    <img src={cardfoto} alt="foto"/>
-                    <NamePokemon>Pokemon</NamePokemon>
+                    <img src={pokemon.sprites && pokemon.sprites.dream_world} alt={pokemon.name}/>
+                    <NamePokemon>{pokemon.name}</NamePokemon>
                     
                     <CardButton>
                         <Button>Adicionar</Button>
-                        <Button onClick={DetailsPokemonPage}>Detalhes</Button>
+                        <Button onClick={() => DetailsPokemonPage(pokemon.name)}>Detalhes</Button>
                     </CardButton>
                 </ContainerCard>
+                )
                 
+                })} */}
+
             </ContainerPokedex>
         
         </div>
-    );
+    )
 }
 
 export default HomePage; 

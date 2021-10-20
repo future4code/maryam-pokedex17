@@ -17,8 +17,12 @@ const Router = () => {
                     <PokedexPage />
                 </Route>
 
-                <Route exact path={"/details"}>
+                <Route exact path={"/pokemon/:name"}>
                     <DetailsPokemonPage />
+                </Route>
+                
+                <Route>
+                    <div> Erro Página não encontrada </div>
                 </Route>
 
             </Switch>

@@ -11,12 +11,13 @@ const useRequestData = (url, initialState) => {
         axios
         .get(url)
         .then((res) => {
-            setData(res.data)
+            setData(res.data);
             setIsLoading(false)
         })
         .catch((err) => {
-            console.log(err.response.message);
+            console.log(err);
             setIsLoading(false)
+            alert("Ocorreu um erro, tente novamente");
         });
 
     }, [url]);
@@ -26,4 +27,3 @@ const useRequestData = (url, initialState) => {
 };
 
 export default useRequestData; 
-

@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
-import HeaderPokedex from "../Header/HeaderPokedex";
+import HeaderPokedex from "../../components/Header/HeaderPokedex";
 import {ContainerButton, ContainerPokedex, ContainerCard, NamePokemon, CardButton, Button, ButtonPokedex, Titulo} from "./styled";
 import cardfoto from "../../img/estrelapoke.png"
 import voltarlogo from "../../img/voltar.png"
@@ -16,7 +16,7 @@ const PokedexPage = () => {
     }
 
     const DetailsPokemonPage = () => {
-        history.push("/details")
+        history.push("/pokemon/:name")
     }
 
     return (
