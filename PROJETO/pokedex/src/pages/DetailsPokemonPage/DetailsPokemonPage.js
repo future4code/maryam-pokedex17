@@ -1,30 +1,27 @@
-import React from "react";
+import React, {useState, useEffect, useContext} from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
-import HeaderDetails from "../Header/HeaderDetails";
+import { useParams } from "react-router";
+import HeaderDetails from "../../components/Header/HeaderDetails";
 import pokedexlogo from "../../img/pokedex.png"
-import {ContainerButton, ButtonPokedex, Button, Titulo, ContainerInfos, ContainerPhotos, ContainerStats, ContainerType, ContainerMoves, ContainerHability } from "./styled";
 import pokephoto from "../../img/estrelapoke.png"
-import {BaseUrl} from "../../constants/BaseUrl"
-import { useParams } from "react-router-dom"
+import {ContainerButton, ButtonPokedex, Button, Titulo, ContainerInfos, ContainerPhotos, ContainerStats, ContainerType, ContainerMoves, ContainerHability } from "./styled";
+import GlobalStateContext from "../../global/GlobalStateContext";
 
 
 const DetailsPokemonPage = () => {
-
-    const [data, setData] = useState([])
-
-    useEffect(() => {
-        axios
-        .get(`${BaseUrl}/stat`)
-        .then((res) => {
-            setData(res.data.stat)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    })
-
     
+    const {name} = useParams()
+    const {pokemons} = useContext(GlobalStateContext)
+    const [selectedPokemon, setSelectedPokemon] = useState([])
+    
+    useEffect(() => {
+        const currentPokemon = pokemons.find((item) => {
+            return item.name === name
+        })
+        setSelectedPokemon(currentPokemon)
+    }, [])
+
     const history = useHistory()
 
     const PokedexPage = () => {
@@ -44,25 +41,22 @@ const DetailsPokemonPage = () => {
         
             <ContainerInfos>
                 <ContainerPhotos>
-                    <img src={pokephoto} alt="foto pokemon" />
+                    <img src={selectedPokemon && selectedPokemon.sprites && selectedPokemon.sprites.dream_world} alt="foto pokemon" />
                     <img src={pokephoto} alt="foto pokemon" />
                 </ContainerPhotos>
 
-                {data.map((stat) => {
-                    return (
-                        <ContainerStats>
-                            <h2>Status</h2>
-                            <br></br>
-                            <p>HP:</p>
-                            <p>Attack:</p>
-                            <p>Defense:</p>
-                            <p>Special-Attack:</p>
-                            <p>Special-Defense:</p>
-                            <p>Speed:</p>
-                        </ContainerStats>
-                        )
-                })} 
                 
+                <ContainerStats>
+                    <h2>Status</h2>
+                    <br></br>
+                    <p>HP:</p>
+                    <p>Attack:</p>
+                    <p>Defense:</p>
+                    <p>Special-Attack:</p>
+                    <p>Special-Defense:</p>
+                    <p>Speed:</p>
+                </ContainerStats>
+
 
                 <ContainerHability>
                     <ContainerType>
