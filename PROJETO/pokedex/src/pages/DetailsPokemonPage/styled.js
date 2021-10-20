@@ -26,6 +26,7 @@ export const Button = styled.button`
     width: 200px;
     border-radius: 8px;
     margin-left: 350px;
+    cursor: pointer;
 `
 
 export const Titulo = styled.h2`
