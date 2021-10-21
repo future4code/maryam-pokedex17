@@ -12,18 +12,18 @@ import GlobalStateContext from "../../global/GlobalStateContext";
 
 const DetailsPokemonPage = () => {
     // const pokeball = useRequest("", `${BaseUrl}`)
-    const {name} = useParams()
-    const {pokemons} = useContext(GlobalStateContext)
-    const [selectedPokemon, setSelectedPokemon] = useState([])
+    // const {name} = useParams()
+    // const {pokemons} = useContext(GlobalStateContext)
+    // const [selectedPokemon, setSelectedPokemon] = useState([])
 
-    console.log(selectedPokemon)
+    // console.log(selectedPokemon)
     
-    useEffect(() => {
-        const currentPokemon = pokemons.find((item) => {
-            return item.name === name
-        })
-        setSelectedPokemon(currentPokemon)
-    }, [])
+    // useEffect(() => {
+    //     const currentPokemon = pokemons.find((item) => {
+    //         return item.name === name
+    //     })
+    //     setSelectedPokemon(currentPokemon)
+    // }, [])
 
     const history = useHistory()
 
@@ -43,42 +43,42 @@ const DetailsPokemonPage = () => {
             </ContainerButton>
         
             <ContainerInfos>
-                {selectedPokemon && selectedPokemon.sprites &&
+                {/* {selectedPokemon && selectedPokemon.sprites && */}
                 <ContainerPhotos>
-                    <img src={selectedPokemon.sprites.versions['generation-v']['black-white'].animated.front_default} alt="foto pokemon" />
-                    <img src={selectedPokemon.sprites.versions['generation-v']['black-white'].animated.front_default} alt="foto pokemon" />
+                    {/* <img src={selectedPokemon.sprites.versions['generation-v']['black-white'].animated.front_default} alt="foto pokemon" /> */}
+                    {/* <img src={selectedPokemon.sprites.versions['generation-v']['black-white'].animated.front_default} alt="foto pokemon" /> */}
                 </ContainerPhotos>
-                }
+                
 
                 <ContainerStats>
-                {selectedPokemon && selectedPokemon.stats && 
+                {/* {selectedPokemon && selectedPokemon.stats && 
                 selectedPokemon.stats.map((stat) => {
                         return(
                                 <p key={stat.stat.name}>
                                     <strong>{stat.stat.name}</strong> {stat.base.stat}
                                 </p>
                         )})
-                }
+                } */}
                 </ContainerStats>
 
 
                 <ContainerHability>
                     <ContainerType>
-                    {selectedPokemon &&
+                    {/* {selectedPokemon &&
                     selectedPokemon.types.map((type) => {
                         return(
                                 <p key={type.type.name}>{type.type.name}</p>
                         )})
-                    }
+                    } */}
                     </ContainerType>
 
                     <ContainerMoves>
-                    {selectedPokemon &&
+                    {/* {selectedPokemon &&
                     selectedPokemon.moves.map((move, index) => {
                         return(
                                 index <5 && <p key={move.move.name}>{move.move.name}</p>
                         )})
-                    }
+                    } */}
                     </ContainerMoves>
                 </ContainerHability>
 
