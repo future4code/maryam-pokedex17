@@ -7,13 +7,16 @@ import pokedexlogo from "../../img/pokedex.png"
 import pokephoto from "../../img/estrelapoke.png"
 import {ContainerButton, ButtonPokedex, Button, Titulo, ContainerInfos, ContainerPhotos, ContainerStats, ContainerType, ContainerMoves, ContainerHability } from "./styled";
 import GlobalStateContext from "../../global/GlobalStateContext";
+// import {BaseUrl} from "../../constants/BaseUrl";
 
 
 const DetailsPokemonPage = () => {
-    
+    // const pokeball = useRequest("", `${BaseUrl}`)
     const {name} = useParams()
     const {pokemons} = useContext(GlobalStateContext)
     const [selectedPokemon, setSelectedPokemon] = useState([])
+
+    console.log(selectedPokemon)
     
     useEffect(() => {
         const currentPokemon = pokemons.find((item) => {
@@ -40,34 +43,42 @@ const DetailsPokemonPage = () => {
             </ContainerButton>
         
             <ContainerInfos>
+                {selectedPokemon && selectedPokemon.sprites &&
                 <ContainerPhotos>
-                    <img src={selectedPokemon && selectedPokemon.sprites && selectedPokemon.sprites.dream_world} alt="foto pokemon" />
-                    <img src={pokephoto} alt="foto pokemon" />
+                    <img src={selectedPokemon.sprites.versions['generation-v']['black-white'].animated.front_default} alt="foto pokemon" />
+                    <img src={selectedPokemon.sprites.versions['generation-v']['black-white'].animated.front_default} alt="foto pokemon" />
                 </ContainerPhotos>
+                }
 
-                
                 <ContainerStats>
-                    <h2>Status</h2>
-                    <br></br>
-                    <p>HP:</p>
-                    <p>Attack:</p>
-                    <p>Defense:</p>
-                    <p>Special-Attack:</p>
-                    <p>Special-Defense:</p>
-                    <p>Speed:</p>
+                {selectedPokemon && selectedPokemon.stats && 
+                selectedPokemon.stats.map((stat) => {
+                        return(
+                                <p key={stat.stat.name}>
+                                    <strong>{stat.stat.name}</strong> {stat.base.stat}
+                                </p>
+                        )})
+                }
                 </ContainerStats>
 
 
                 <ContainerHability>
                     <ContainerType>
-                        <h2>Type</h2>
+                    {selectedPokemon &&
+                    selectedPokemon.types.map((type) => {
+                        return(
+                                <p key={type.type.name}>{type.type.name}</p>
+                        )})
+                    }
                     </ContainerType>
 
                     <ContainerMoves>
-                        <h2>Especiais</h2>
-                        <p>Move</p>
-                        <p>Move</p>
-                        <p>Move</p>
+                    {selectedPokemon &&
+                    selectedPokemon.moves.map((move, index) => {
+                        return(
+                                index <5 && <p key={move.move.name}>{move.move.name}</p>
+                        )})
+                    }
                     </ContainerMoves>
                 </ContainerHability>
 
