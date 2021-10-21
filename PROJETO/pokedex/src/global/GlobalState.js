@@ -27,9 +27,9 @@ const GlobalState = (props) => {
                     setPokemons(orderedList)
                 }
             })
-            .catch((err) => {
+            .catch((err) => 
                 console.log(err.message)
-            })
+            )
         })
         
     }, [pokemonName])
@@ -39,12 +39,12 @@ const GlobalState = (props) => {
     const getPokemonName = () => {
         axios
         .get(`${BaseUrl}/pokemon`)
-        .then((response) => {
+        .then((response) => 
             setPokemonName(response.data.results)
-        })
-        .catch((err) => {
+        )
+        .catch((err) => 
             console.log(err.message)
-        })
+        )
     }
     
     const data = {pokemons, setPokemons, pokedex, setPokedex}

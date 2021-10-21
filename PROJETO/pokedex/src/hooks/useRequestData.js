@@ -11,7 +11,7 @@ const useRequestData = (url, initialState) => {
         axios
         .get(url)
         .then((res) => {
-            setData(res.data);
+            setData(res.data.results);
             setIsLoading(false)
         })
         .catch((err) => {
