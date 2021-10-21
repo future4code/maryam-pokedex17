@@ -24,7 +24,7 @@ export const Titulo = styled.h2`
 
 export const ContainerPokedex = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 5fr));
     gap: 15px;
     justify-self: center;
     margin: 20px 15px;
@@ -35,16 +35,16 @@ export const ContainerCard = styled.div`
     width: 250px;
     height: 300px;
     border-radius: 25px;
-    img {
-        height: 80px;
-        margin: 0 auto;
-        margin-left: 85px;
-        margin-top: 30px;
-        
-    }
 `
 
-export const NamePokemon = styled.h2`
+export const PokeImagem = styled.img`
+    height: 80px;
+    margin: 0 auto;
+    margin-left: 85px;
+    margin-top: 30px;
+`
+
+export const NamePokemon = styled.h3`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,10 +63,25 @@ export const Button = styled.button`
     background-color: #585858;
     font-style: bold;
     font-weight: 700;
+    font-size: medium;
     color: white;
     
     height: 40px;
     width: 100px;
     border-radius: 8px;
+    border: none;
+    cursor: pointer;
+`
+export const ButtonAdd = styled.button`
+    background-color: #FA7346;
+    font-style: bold;
+    font-weight: 700;
+    font-size: medium;
+    color: white;
+    
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    border: none;
     cursor: pointer;
 `

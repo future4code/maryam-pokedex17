@@ -1,22 +1,47 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
 import HeaderPokedex from "../../components/Header/HeaderPokedex";
-import {ContainerButton, ContainerPokedex, ContainerCard, NamePokemon, CardButton, Button, ButtonPokedex, Titulo} from "./styled";
-import cardfoto from "../../img/estrelapoke.png"
 import voltarlogo from "../../img/voltar.png"
 
+import {ButtonRemove, ContainerButton, ContainerPokedex, ContainerCard, NamePokemon, CardButton, Button, ButtonPokedex, Titulo} from "./styled";
+import cardfoto from "../../img/estrelapoke.png"
+import {BaseUrl} from "../../constants/BaseUrl"
 
 const PokedexPage = () => {
 
+    const [pokedexList, setPokedexList] = useState([])
+    
+    useEffect(() => {
+        getPokedex();
+    }, [])
+
+    const getPokedex = () => {
+        axios
+        .get(`${BaseUrl}/pokemon?limit=0&offset=0`)
+        .then((response) => {
+            setPokedexList(response.data.results);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
+    const removePokemon = (pokemon) => {
+        const pokemonIndex = pokedexList.indexOf(pokemon)
+        const updateList = pokedexList.splice(pokemonIndex, 1)
+        setPokedexList(updateList);
+    }
+    
+    
     const history = useHistory()
 
     const HomePage = () => {
         history.push("/")
     }
 
-    const DetailsPokemonPage = (name) => {
-        history.push(`/pokemon/${name}`)
+    const DetailsPokemonPage = (id) => {
+        history.push(`/pokemon/${id}`)
     }
 
     return (
@@ -36,8 +61,8 @@ const PokedexPage = () => {
                     <NamePokemon>Pokemon</NamePokemon>
                     
                     <CardButton>
-                        <Button>Remover</Button>
                         <Button onClick={DetailsPokemonPage}>Detalhes</Button>
+                        <ButtonRemove onClick={removePokemon}>Remover</ButtonRemove>
                     </CardButton>
                 </ContainerCard>
             
