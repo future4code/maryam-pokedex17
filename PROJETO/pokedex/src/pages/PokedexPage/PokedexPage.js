@@ -4,7 +4,7 @@ import axios from "axios";
 import HeaderPokedex from "../../components/Header/HeaderPokedex";
 import voltarlogo from "../../img/voltar.png"
 
-import {ContainerButton, ContainerPokedex, ContainerCard, NamePokemon, CardButton, Button, ButtonPokedex, Titulo} from "./styled";
+import {ButtonRemove, ContainerButton, ContainerPokedex, ContainerCard, NamePokemon, CardButton, Button, ButtonPokedex, Titulo} from "./styled";
 import cardfoto from "../../img/estrelapoke.png"
 import {BaseUrl} from "../../constants/BaseUrl"
 
@@ -61,8 +61,8 @@ const PokedexPage = () => {
                     <NamePokemon>Pokemon</NamePokemon>
                     
                     <CardButton>
-                        <Button onClick={removePokemon}>Remover</Button>
                         <Button onClick={DetailsPokemonPage}>Detalhes</Button>
+                        <ButtonRemove onClick={removePokemon}>Remover</ButtonRemove>
                     </CardButton>
                 </ContainerCard>
             

@@ -63,10 +63,25 @@ export const Button = styled.button`
     background-color: #585858;
     font-style: bold;
     font-weight: 700;
+    font-size: medium;
     color: white;
     
     height: 40px;
     width: 100px;
     border-radius: 8px;
+    border: none;
+    cursor: pointer;
+`
+export const ButtonAdd = styled.button`
+    background-color: #FA7346;
+    font-style: bold;
+    font-weight: 700;
+    font-size: medium;
+    color: white;
+    
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    border: none;
     cursor: pointer;
 `

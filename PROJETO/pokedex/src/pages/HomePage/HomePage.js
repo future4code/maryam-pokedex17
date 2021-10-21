@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
 import HeaderHome from "../../components/Header/HeaderHome";
-import {PokeImagem, ContainerButton, ContainerPokedex, ContainerCard, NamePokemon, CardButton, Button, ButtonPokedex, Titulo } from "./styled";
+import {ButtonAdd, PokeImagem, ContainerButton, ContainerPokedex, ContainerCard, NamePokemon, CardButton, Button, ButtonPokedex, Titulo } from "./styled";
 
 import pokedexlogo from "../../img/bagmaior.png"
 import {BaseUrl} from "../../constants/BaseUrl";
@@ -57,8 +57,8 @@ const HomePage = ({pokemon}) => {
                 <NamePokemon>{poke.name.toUpperCase()}</NamePokemon>
                 
                 <CardButton>
-                    <Button onClick={addPokemon}>Adicionar</Button>
                     <Button onClick={() => DetailsPokemonPage(poke.name)} key={poke.name}>Detalhes</Button>
+                    <ButtonAdd onClick={addPokemon}>Adicionar</ButtonAdd>
                 </CardButton>
             </ContainerCard>
         )
