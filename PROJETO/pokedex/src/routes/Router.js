@@ -23,7 +23,7 @@ const Router = (props) => {
                     />
                 </Route>
 
-                <Route exact path={"/pokemon/:id"}>
+                <Route exact path={"/pokemon/:name"}>
                     <DetailsPokemonPage />
                 </Route>
                 

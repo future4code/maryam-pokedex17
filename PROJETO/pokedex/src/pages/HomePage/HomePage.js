@@ -10,26 +10,11 @@ import useRequestData from "../../hooks/useRequestData";
 import GlobalStateContext from "../../global/GlobalStateContext";
 
 
-const HomePage = ({pokemon}) => {
-    // const pokelist = useRequestData(`${BaseUrl}/pokemon`, {})
-
-    const [pokemonsList, setPokemonsList] = useState([]);
+const HomePage = () => {
     const [pokedexList, setPokedexList] = useState([])
-    
-    useEffect(() => {
-        getPokemons();
-    }, [])
 
-    const getPokemons = () => {
-        axios
-        .get(`${BaseUrl}/pokemon?limit=0&offset=0`)
-        .then((response) => {
-            setPokemonsList(response.data.results);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }
+    const pokemonsList = useRequestData(`${BaseUrl}/pokemon?limit=0&offset=0`, {})
+
 
     const addPokemon = (pokemon) => {
         if (!pokedexList.includes(pokemon)) {
@@ -46,11 +31,12 @@ const HomePage = ({pokemon}) => {
         history.push("/pokedex")
     }
 
-    const DetailsPokemonPage = (id) => {
-        history.push(`/pokemon/${id}`)
+    const DetailsPokemonPage = (name) => {
+        history.push(`/pokemon/${name}`)
     }
 
-    const CardPokemon = pokemonsList.map((poke) => {
+
+    const CardPokemon = pokemonsList && pokemonsList.map((poke) => {
         return (
             <ContainerCard key={poke.url}>
                 <PokeImagem src={poke && poke.sprites && poke.sprites.versions['generation-v']['black-white'].animated.front_default} alt={poke.name}/>
@@ -58,7 +44,7 @@ const HomePage = ({pokemon}) => {
                 
                 <CardButton>
                     <Button onClick={() => DetailsPokemonPage(poke.name)} key={poke.name}>Detalhes</Button>
-                    <ButtonAdd onClick={addPokemon}>Adicionar</ButtonAdd>
+                    <ButtonAdd onClick={() => addPokemon(poke)}>Adicionar</ButtonAdd>
                 </CardButton>
             </ContainerCard>
         )
