@@ -10,20 +10,14 @@ const Router = (props) => {
             <Switch>
 
                 <Route exact path={"/"}>
-                    <HomePage
-                        pokemonList={props.pokemonsList}
-                        addPokemon={props.addPokemon}
-                    />
+                    <HomePage/>
                 </Route>
 
                 <Route exact path={"/pokedex"}>
-                    <PokedexPage
-                        pokemonList={props.pokemonsList}
-                        removePokemon={props.removePokemon}
-                    />
+                    <PokedexPage/>
                 </Route>
 
-                <Route exact path={"/pokemon/:id"}>
+                <Route exact path={"/pokemon/:name/:telaPokedex"}>
                     <DetailsPokemonPage />
                 </Route>
                 

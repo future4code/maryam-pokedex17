@@ -40,8 +40,8 @@ const PokedexPage = () => {
         history.push("/")
     }
 
-    const DetailsPokemonPage = (id) => {
-        history.push(`/pokemon/${id}`)
+    const DetailsPokemonPage = (name) => {
+        history.push(`/pokemon/${name}`)
     }
 
     return (

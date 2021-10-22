@@ -2,28 +2,34 @@ import React, {useState, useEffect, useContext} from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
 import { useParams } from "react-router";
+
 import HeaderDetails from "../../components/Header/HeaderDetails";
 import pokedexlogo from "../../img/pokedex.png"
 import pokephoto from "../../img/estrelapoke.png"
+
 import {ContainerButton, ButtonPokedex, Button, Titulo, ContainerInfos, ContainerPhotos, ContainerStats, ContainerType, ContainerMoves, ContainerHability } from "./styled";
 import GlobalStateContext from "../../global/GlobalStateContext";
-// import {BaseUrl} from "../../constants/BaseUrl";
+import {BaseUrl} from "../../constants/BaseUrl";
 
 
 const DetailsPokemonPage = () => {
-    // const pokeball = useRequest("", `${BaseUrl}`)
-    // const {name} = useParams()
-    // const {pokemons} = useContext(GlobalStateContext)
-    // const [selectedPokemon, setSelectedPokemon] = useState([])
+    const params = useParams()
+    const [pokemons, setPokemons] = useState()
 
-    // console.log(selectedPokemon)
-    
-    // useEffect(() => {
-    //     const currentPokemon = pokemons.find((item) => {
-    //         return item.name === name
-    //     })
-    //     setSelectedPokemon(currentPokemon)
-    // }, [])
+    useEffect(() => {
+        getDetailsPokemon()
+    }, [])
+
+    const getDetailsPokemon = () => {
+        axios
+        .get(`${BaseUrl}/pokemon/${params.name}`)
+        .then(response => {
+            setPokemons(response.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        }) 
+    }
 
     const history = useHistory()
 
