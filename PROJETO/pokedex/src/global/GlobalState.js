@@ -17,19 +17,19 @@ const GlobalState = (props) => {
         const pokeList = []
         pokemonName.forEach((item) => {
             axios
-            .get(item.url)
-            .then((response) => {
-                pokeList.push(response.data)
-                if(pokeList.length === 20){
-                    const orderedList= pokeList.sort((a, b) => {
-                        return a.id - b.id
-                    })
-                    setPokemons(orderedList)
-                }
-            })
-            .catch((err) => 
-                console.log(err.message)
-            )
+                .get(`${BaseUrl}/pokemon/${item.name}`)
+                .then((response) => {
+                    pokeList.push(response.data)
+                    if(pokeList.length === 20){
+                        const orderedList= pokeList.sort((a, b) => {
+                            return a.id - b.id
+                        })
+                        setPokemons(orderedList)
+                    }
+                })
+                .catch((err) => 
+                    console.log(err.message)
+                )
         })
         
     }, [pokemonName])
@@ -38,19 +38,19 @@ const GlobalState = (props) => {
     
     const getPokemonName = () => {
         axios
-        .get(`${BaseUrl}/pokemon`)
-        .then((response) => 
+        .get(`${BaseUrl}/pokemon?limit=20`)
+        .then((response) => {
             setPokemonName(response.data.results)
-        )
-        .catch((err) => 
+        })
+        .catch((err) => {
             console.log(err.message)
-        )
+        })
     }
     
-    const data = {pokemons, setPokemons, pokedex, setPokedex}
+    const data = {pokedex, setPokedex, pokemons, setPokemons}
 
     return (
-        <GlobalStateContext.Provider value={{data}}>
+        <GlobalStateContext.Provider value={data}>
             {props.children}
         </GlobalStateContext.Provider>
     )
