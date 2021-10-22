@@ -21,7 +21,8 @@ Nome dos integrantes:
 # Wireframe: 
 
 [Pokedex.pdf](https://github.com/future4code/maryam-pokedex17/files/7400032/Pokedex.pdf)
-![Pokedex](https://user-images.githubusercontent.com/86701927/138489352-c55ed1f6-4118-480f-8624-58b9d7bc5dd3.jpg)
+
+![Pokedex](https://user-images.githubusercontent.com/86701927/138489876-716b56d1-a176-4194-aa22-2a44fdb7fa5a.png)
 
 # Paletas de Cores: 
 https://coolors.co/f45138-fa7346-fdfdfd-585858-000000
