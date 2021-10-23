@@ -6,9 +6,10 @@ export const ContainerCard = styled.div`
     height: 300px;
     border-radius: 25px;
     img {
-        height: 80px;
+        width: 100px;
+        height: 100px;
         margin: 0 auto;
-        margin-left: 85px;
+        margin-left: 80px;
         margin-top: 30px;
         
     }
@@ -18,7 +19,7 @@ export const NamePokemon = styled.h3`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 25px;
 `
 
 export const CardButton = styled.div`

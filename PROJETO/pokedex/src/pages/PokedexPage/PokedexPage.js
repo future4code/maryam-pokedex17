@@ -1,52 +1,24 @@
-import {useState, useEffect} from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router";
-import axios from "axios";
 import HeaderPokedex from "../../components/Header/HeaderPokedex";
 import voltarlogo from "../../img/voltar.png"
-
 import {ButtonRemove, ContainerButton, ContainerPokedex, ContainerCard, NamePokemon, CardButton, Button, ButtonPokedex, Titulo} from "./styled";
-import cardfoto from "../../img/estrelapoke.png"
-import {BaseUrl} from "../../constants/BaseUrl"
+
+import { HomePage } from "../../routes/coordinates";
+import GlobalStateContext from "../../global/GlobalStateContext";
+import CardPoke from "../../components/CardPoke/CardPoke";
 
 const PokedexPage = () => {
+    const { pokedex } = useContext(GlobalStateContext);
+    const history = useHistory();
 
-    const [pokedexList, setPokedexList] = useState([])
-    
-    useEffect(() => {
-        getPokedex();
-    }, [])
+    const PokeList = pokedex && pokedex.map((poke) => {
+        return <CardPoke isPokedex key={poke.name} poke={poke} />
+    })
 
-    const getPokedex = () => {
-        axios
-        .get(`${BaseUrl}/pokemon?limit=0&offset=0`)
-        .then((response) => {
-            setPokedexList(response.data.results);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }
-
-    const removePokemon = (pokemon) => {
-        const pokemonIndex = pokedexList.indexOf(pokemon)
-        const updateList = pokedexList.splice(pokemonIndex, 1)
-        setPokedexList(updateList);
-    }
-    
-    
-    const history = useHistory()
-
-    const HomePage = () => {
-        history.push("/")
-    }
-
-    const DetailsPokemonPage = (name) => {
-        history.push(`/pokemon/${name}`)
-    }
 
     return (
         <div>
-
             <HeaderPokedex/>
 
             <ContainerButton>
@@ -55,17 +27,7 @@ const PokedexPage = () => {
             </ContainerButton>
 
             <ContainerPokedex>
-                
-                <ContainerCard>
-                    <img src={cardfoto} alt="foto"/>
-                    <NamePokemon>Pokemon</NamePokemon>
-                    
-                    <CardButton>
-                        <Button onClick={DetailsPokemonPage}>Detalhes</Button>
-                        <ButtonRemove onClick={removePokemon}>Remover</ButtonRemove>
-                    </CardButton>
-                </ContainerCard>
-            
+                {PokeList}
             </ContainerPokedex>
         
         </div>
