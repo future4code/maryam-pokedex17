@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { DetailsPokemonPage } from "../../routes/coordinates";
+import { DetailsPokemonPage } from "../../routes/coordinates"
 import {ContainerCard, NamePokemon, CardButton, Button, ButtonAdd } from "./styled"
 import GlobalStateContext from "../../global/GlobalStateContext";
 
@@ -51,12 +51,12 @@ const CardPoke = (props) => {
 
     return (
         <ContainerCard>
-            <img src={props.poke && props.poke.sprites && props.poke.sprites.front_default} alt={props.poke.name}/>
+            <img src={props.poke && props.poke.sprites && props.poke.sprites.versions['generation-v']['black-white'].animated.front_default} alt={props.poke.name}/>
             <NamePokemon>{props.poke.name.toUpperCase()}</NamePokemon>
 
             <CardButton>
-                <Button onClick={() => DetailsPokemonPage(history, props.poke.name, props.isPokedex)}>Detalhes</Button>
-                <ButtonAdd onClick={props.isPokedex ? removeFromPokedex : addToPokedex}>
+                <Button onClick={() => DetailsPokemonPage(history, props.poke.name, props.isPokedex)}> Detalhes </Button>
+                <ButtonAdd onClick={props.isPokedex ? "removeFromPokedex" : "addToPokedex"}>
                 {props.isPokedex ? "Remover" : "Adicionar"}
                 </ButtonAdd>
             </CardButton>
