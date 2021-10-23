@@ -32,12 +32,10 @@ https://coolors.co/f45138-fa7346-fdfdfd-585858-000000
 # Funcionalidades:
 
 O que funciona:
-- Item 1
-- Item 2
+- Pokelist com Pokemons e GlobalState
 
 O que não funciona: 
-- Item 3
-- Item 4
+- Adicionar os pokemons e página de detalhes
 
 # Implementações: 
 
