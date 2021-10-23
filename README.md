@@ -18,6 +18,8 @@ Nome dos integrantes:
 
 # Link do Surge: 
 
+http://labenu-pokedex-poke.surge.sh/
+
 # Wireframe: 
 
 [Pokedex.pdf](https://github.com/future4code/maryam-pokedex17/files/7400032/Pokedex.pdf)
