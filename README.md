@@ -1,9 +1,9 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Alexandre Rafael
+- Alexandre Rafael .
 - Juliany Santos Vasconcelos
-- Leonardo Souza Gomes
+- Leonardo Souza Gomes .
 
 # Planejamento: 
 
